@@ -1,0 +1,12 @@
+---
+title: "Pathologies hypertensives en Hospitalisation à domicile"
+format: html
+---
+
+:::{.callout-note}
+
+"Appeler un statisticien après que l’expérience est terminée, c’est comme lui demander de faire une autopsie ; il pourra seulement déterminer la cause de l’échec de l’expérience."
+
+Sir Ronald A. Fisher, FRS
+:::
+
