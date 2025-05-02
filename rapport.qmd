@@ -1,11 +1,13 @@
 ---
-title: "Pathologies hypertensives en Hospitalisation à domicile"
+title: "Pathologies hypertensives de la grossesse en Hospitalisation à domicile"
 format: html
 ---
 
 ::: {.panel-tabset}
 
 # Introduction
+
+**Investigateur principal : Mme Sandrine GUENEAU**
 
 :::{.callout-note}
 
@@ -29,6 +31,7 @@ library(tidyverse)
 library(missMDA)
 library(FactoMineR)
 library(factoextra)
+library(nnet)
 library(kableExtra)
 library(gtsummary)
 library(DataExplorer)
@@ -58,36 +61,34 @@ ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test"
 ```{r}
 #| label: import
 
-tt <- read_ods("datas/htahad.ods", sheet = "htahad", na = c("", "NC")) |>
+tt <- read_ods("datas/htahad.ods", sheet = "tableau", na = c("", "NC")) |>
   clean_names() |>
-  mutate(across(where(is.character), ~ as.factor(.x))) |>
+  mutate(across(where(is.character), ~as.factor(.x))) |>
+  mutate(across(starts_with("nb_"), ~as.factor(.x))) |>
   mutate(ipp = as.factor(ipp)) |>
-  mutate(across(starts_with("date"), ~ dmy(.x))) |>
+mutate(across(starts_with("prot_"), ~ fct_relevel(
+    .x,
+    "neg", "0,3-1", "1 a 3", ">3"
+  ))) |> 
   ## Réordonnancement de tt$terme_mise_en_place_ttt
-  mutate(terme_mise_en_place_tt = fct_relevel(
-    terme_mise_en_place_tt,
-    "arret  debut de grossesse", "avant 20SA", "apres 20SA", "apres 25SA"
-  )) |>
-  mutate(traitement = fct_relevel(
-    traitement,
-    "aucun", "monotherapie", "bitherapie", "tritherapie"
-  )) |>
+  mutate(across(starts_with("traitement"), ~ fct_relevel(
+    .x,
+    "aucun", "monothérapie", "Bithérapie", "trithérapie"
+  ))) |>
   mutate(imc = bmiph(imc)) |>
   ## Réordonnancement de tt$nb_bvr
   mutate(nb_bvr = fct_relevel(
     nb_bvr,
     "1", "2", "1/mois", "2/mois", "1/sem", "2/sem"
-  )) |>
-  select(-c(description_evenement_interrcurrant, issue, ajout_patho, prot, bvr_entree, patho_associe, atcd, motif_declenchement, motif_rehospi, prot_sortie, bvr_sortie, atcd))
+  )) 
+#
+bn <- read_ods("datas/htahad.ods", sheet = "bnom")
+bn <- bn$nom
+var_label(tt) <- bn
 ```
 
-L'échantillon comporte `r nrow(tt)` patients pour `r ncol(tt) - 1` variables. 
+L'échantillon conservé pour l'analyse statistique comporte `r nrow(tt)` patients pour `r ncol(tt) - 1` variables. 
 
-Nombre de variables sont inutilisables car comportant trop de réponses différentes. 
-
-Les deux variables `protéinurie` sont inutilisables car comportant des réponses avec plusieurs unités différentes.
-
-Plusieurs erreurs sur les saisies de date. Par exemple, la patiente `248481` a eu son diagnostic après la prise en charge & après la sortie ? 
 
 # Population
 
@@ -96,52 +97,93 @@ Plusieurs erreurs sur les saisies de date. Par exemple, la patiente `248481` a e
 #| tbl-cap: Population de l'étude
 
 tt |>
-  select(-ipp) |>
-  select(-starts_with("date")) |>
+  select(mater_origine:patho_associe) |>
   tbl_summary(missing = "no") |>
   add_n() |>
   bold_labels() |>
   modify_header(label ~ " ") |>
   pexptabph(exp = expx, nomfich = classeur, nomsheet = "popu", lg = TRUE)
-
 ```
 
 
-# Traitements
+# À la prise en charge
 
 ```{r}
-#| label: fig-compte-tt
+#| label: tbl-entree
+#| tbl-cap: Bilan d'entrée
 
-tibble(tt$medicaments) |> 
-mutate(med = as.factor((str_count(tt$medicaments," ") + 1))) |> 
-lollipph(med, titre = "Nb de médicaments")
-```
-
-```{r}
-#| label: tbl-med
-#| tbl-cap: Molécules utilisées
-
-zz <- str_split_fixed(tt$medicaments, " ", 4) |>
-  as.data.frame() |>
-  pivot_longer(cols = everything()) |>
-  mutate(value = as.factor(value)) |>
-  filter(value != "") |>
-  rename(médicaments = value) |>
-  mutate(médicaments = factor(médicaments)) |>
-  mutate(ww = ifelse(médicaments == "Aucun", 1, 5))
-zz$médicaments <- fct_infreq(zz$médicaments, w = zz$ww)
-zz |>
-  select(médicaments) |>
+tt |>
+  select(terme_dentree:classification_patho) |>
   tbl_summary(missing = "no") |>
+  add_n() |>
   bold_labels() |>
   modify_header(label ~ " ") |>
-  pexptabph(exp = expx, nomfich = classeur, nomsheet = "med1", lg = TRUE)
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "entree", lg = TRUE)
 ```
+
+# ISSUE
+ 
+On recherche des facteurs éventuels pouvant influencer l'issue de l'HAD.
+
+```{r}
+#| label: tbl-isssuepop
+#| tbl-cap: Issue selon les variables démagogiques & les antécédants
+
+tt |>
+  select(mater_origine:patho_associe, issue) |>
+  tbl_summary(by = issue,
+              missing = "no") |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "popissue", lg = TRUE)
+```
+
+La conclusion de l'HAD semble surtout liée au terrain (atcd, pathologies associées...). Visiblement chaque maternité a sa propre politique de prise en charge des patientes.
+
+
+```{r}
+#| label: tbl-isssueentree
+#| tbl-cap: Issue selon le bilan initial
+
+tt |>
+  select(terme_dentree:classification_patho, issue) |>
+  tbl_summary(by = issue,
+              missing = "no") |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue", lg = TRUE)
+```
+
+Le type de suivi semble influer sur la sortie. 
+
+## Analyse en régression
+
+```{r}
+#| label: tbl-regissue
+#| tbl-cap: Issue de l'HAD - analyse en régression
+
+
+multinom(issue~ 
+  mater_origine +
+  age_au_ddg,
+
+  data = tt
+) |> 
+  tbl_regression(exponentiate = TRUE) 
+
+
+```
+
 
 # Analyse factorielle
 
 ```{r}
 #| label: af-prepa
+#| eval: false
 
 zz <- tt |>
   select(-c(ipp, medicaments)) |>
@@ -161,21 +203,23 @@ Les représentations graphiques qui suivent n'expliquent que 18 % de la variance
 ```{r}
 #| label: fig-afvar
 #| fig-cap: Analyse factorielle - variables
-
+#| eval: false
 fviz_famd_var(rtt, col.var = "contrib", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE) +
   labs(title = "Analyse factorielle - variables") +
   theme(legend.position = "none")
 
 ```
 
-Les variables concernant les pathologies semblent être les principales variables discriminantes. Les différences dans la prise en charge selon la pathologie dans les différents centres participants se retrouvent sur ce tableau. Si des analyses sur la prise en charge devaient être réalisée il faudrait les standardiser sur le centre (analyse en régression par ex.)
+Les variables concernant les pathologies semblent être les principales variables discriminantes. Les différences dans la prise en charge selon la pathologie dans les différents centres participants se retrouvent sur ce tableau.
+
+Si des analyses sur la prise en charge devaient être réalisée il faudrait les standardiser sur le centre (analyse en régression par ex.)
 
 ## Individus
 
 ```{r}
 #| label: fig-afind
 #| fig-cap: Analyse factorielle - individus, regroupement selon la pathologie
-
+#| eval: false
 fviz_famd_ind(rtt, geom = "point", habillage = "classification_patho", addEllipses = TRUE, col.quali.var = "white", ) +
   labs(title = "Analyse factorielle - individus, regroupement selon la pathologie") +
   theme(legend.position = "right")
