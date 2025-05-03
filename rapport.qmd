@@ -54,12 +54,15 @@ theme_gtsummary_language(language = "fr", decimal.mark = ",")
 # theme_gtsummary_journal(journal = "jama")
 options(OutDec = ",")
 ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test")
+
+load(file = "datas/htahad.RData")
 ```
 
 
 
 ```{r}
 #| label: import
+#| eval: false
 
 tt <- read_ods("datas/htahad.ods", sheet = "tableau", na = c("", "NC")) |>
   clean_names() |>
@@ -80,12 +83,48 @@ mutate(across(starts_with("prot_"), ~ fct_relevel(
   mutate(nb_bvr = fct_relevel(
     nb_bvr,
     "1", "2", "1/mois", "2/mois", "1/sem", "2/sem"
-  )) 
+  )) |> 
+  ## Réordonnancement de tt$issue
+mutate(issue = fct_relevel(issue,
+    "W spont", "declt prog", "urgences"
+  )) |> 
+mutate(pe = ifelse(classification_patho %in% c("PE","PE sur ajouté"), "PE", "non PE") ) |> 
+## Recodage de tt$nb_rcf en tt$nb_rcf_rec
+mutate(nb_rcf = fct_recode(nb_rcf,
+    "2-3" = "2",
+    "2-3" = "3",
+    "5 et +" = "5",
+    "5 et +" = "7",
+    "5 et +" = "S"
+  )) |> 
+  ## Recodage de tt$nb_ef
+mutate(nb_ef = fct_recode(nb_ef,
+    "EF" = "0",
+    "Pas d'EF" = "1",
+    "Pas d'EF" = "2"
+  )) |> 
+  ## Recodage de tt$nb_bvr
+mutate(nb_bvr = fct_recode(nb_bvr,
+    "1-2" = "1",
+    "1-2" = "2",
+    "1-2/mois" = "1/mois",
+    "1-2/mois" = "2/mois",
+    "1-2/sem" = "1/sem",
+    "1-2/sem" = "2/sem"
+  ))
+  
+
+
+  
 #
 bn <- read_ods("datas/htahad.ods", sheet = "bnom")
-bn <- bn$nom
+bn <- c(bn$nom, "PE")
 var_label(tt) <- bn
+
+save(tt, bn, file = "datas/htahad.RData")
 ```
+
+
 
 L'échantillon conservé pour l'analyse statistique comporte `r nrow(tt)` patients pour `r ncol(tt) - 1` variables. 
 
@@ -110,7 +149,7 @@ tt |>
 
 ```{r}
 #| label: tbl-entree
-#| tbl-cap: Bilan d'entrée
+#| tbl-cap: Bilan d'entrée & prise en charge avant
 
 tt |>
   select(terme_dentree:classification_patho) |>
@@ -162,15 +201,42 @@ Le type de suivi semble influer sur la sortie.
 
 ## Analyse en régression
 
+
+On va essayer de voir si on peut prédire l'issue de l'HAD à partir des variables disponibles en utilisant une régression multinomiale en prenant comme valeur de référence `Travail spontané`, c'est à dire que dans le tableau suivant on compare les autres modalités à `Travail spontané`. 
+
+
+```{r}
+#| label: acp
+#| eval: false
+
+#nn <- estim_ncpFAMD(tt)
+nn <- 0
+ttc <- imputeFAMD(tt, ncp = nn)
+ttc <- ttc$completeObs
+lm <- multinom(issue~ 
+                 mater_origine + 
+    atcd +
+  patho_associe +
+    pe +
+   nb_rcf +
+    nb_ef,
+  data = ttc
+)
+
+```
+
+
 ```{r}
 #| label: tbl-regissue
 #| tbl-cap: Issue de l'HAD - analyse en régression
 
 
 multinom(issue~ 
-  mater_origine +
-  age_au_ddg,
-
+    atcd +
+  patho_associe +
+   nb_rcf +
+    pe +
+    nb_ef,
   data = tt
 ) |> 
   tbl_regression(exponentiate = TRUE) 
@@ -183,11 +249,10 @@ multinom(issue~
 
 ```{r}
 #| label: af-prepa
-#| eval: false
+#| eval: true
 
 zz <- tt |>
-  select(-c(ipp, medicaments)) |>
-  select(-starts_with("date"))
+  select(-c(ipp))
 
 # nncp <- estim_ncpFAMD(zz)
 nncp <- 0
@@ -203,7 +268,7 @@ Les représentations graphiques qui suivent n'expliquent que 18 % de la variance
 ```{r}
 #| label: fig-afvar
 #| fig-cap: Analyse factorielle - variables
-#| eval: false
+#| eval: true
 fviz_famd_var(rtt, col.var = "contrib", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE) +
   labs(title = "Analyse factorielle - variables") +
   theme(legend.position = "none")
