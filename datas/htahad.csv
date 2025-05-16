@@ -1,0 +1,200 @@
+IPP;mater origine;patho prescription;ddg;dd debut  pc;CRH;DDN;age au DDG;parité;IMC;spont/PMA;gem;ATCD ;Diabete;patho associé;terme d'entrée;nd RCF;nd EF;nb BVR;echo entrée;"terme mise 
+en place ttt";cure ctc;traitement;BVR entrée;prot;Classification patho;date sortie;terme sortie;ajout patho;issue;durée HAD;"NB evenements
+ intercurrents";"description
+evenement interrcurrant";echo sortie;traitement;BVR sortie;prot sortie;motif rehospi;terme acct;"motif 
+declanchement"
+155478;DELAFONTAINE;HTAC;09/11/2023;09/05/2024;oui;17/02/1984;39;2;38;spont;non;"PE
+RCIU";;;28;3;0;1;eutrophe;avant 20SA;non;tritherapie;"thrombopénie
+ 115";0,7;PE surajoutée;16/05/2024;29;HTA maligne;hospit PE;7;1;PE;eutrophe;Loxen Aldomet Trandate;plq stable;neg;PE;30;PE
+227712;DELAFONTAINE;HTAC;08/06/2023;07/12/2023;oui;18/04/1990;33;0;34;spont;non;;;;28,1428571428571;2;0;1;eutrophe;apres 20SA;oui;monotherapie;normal;neg;HTAG;19/01/2024;34,1428571428571;PE;Hospit PE;43;2;hospit a 32SA pour suspicion PE;RCIU;Loxen;normal;P/C +;PE;35,2857142857143;ARCF
+248481;DELAFONTAINE;HTAG;28/09/2024;27/03/2024;oui;08/03/1985;39;1;33;spont;non;HTAG;;;27,8571428571429;3;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;17/05/2024;35,1428571428571;PE;hospit PE;51;1;PE;eutrophe;Trandate;normal;neg;PE;35,2857142857143;PE
+257038;pontoise;HTAc;10/04/2024;23/09/2024;oui;08/10/1984;39;2;24;PMA;non;HTAg;DT2;;25,7142857142857;7;0;2/sem;eutrophe;avant 20SA;oui;monotherapie;normal;0,7/24h;PE surajoutée;17/12/2024;37,8571428571429;;declt prog;85;2;"2 hospi 
+pour MAP";eutrophe;Trandate;A/A 3* NL;negatif;declt prog;38;PE
+278817;DELAFONTAINE;HTA;25/06/2023;07/02/2024;oui;29/05/1984;39;5;35;spont;non;RCIU;DGID;;32,1428571428571;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;29/02/2024;37,5714285714286;RCIU;declt en urg;22;1;"arret de 
+croissance";RCIU;Loxen;normal;negatif;RCIU;37,5714285714286;"arret 
+croissance"
+407217;DELAFONTAINE;HTAC;01/10/2023;02/04/2024;oui;12/05/1985;38;3;26;spont;BIBI;;DGID;;28,2857142857143;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;06/06/2024;37,5714285714286;;declt prog;65;0;;eutrophe;nifedipine;"thrombopénie
+Plq 130";neg;declt prog;38;BIBI
+408600;DELAFONTAINE;HTAC;14/12/2023;02/07/2024;oui;22/09/1986;37;4;35;spont;non;PE;DT2;;30,7142857142857;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;28/08/2024;38,8571428571429;;declt prog;57;1;"hospit pour 
+diabete desequ";eutrophe;Aldomet;normal;neg;declt prog;39;tricicat
+411682;DELAFONTAINE;HTAG;08/02/2024;15/01/2024;oui;10/02/1984;39;1;NC;spont;non;"PE
+MFIU";DGID;;35,5714285714286;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;19/01/2024;36,1428571428571;;acct prema;4;1;W spont;eutrophe;Loxen;normal;neg;W spont;36,1428571428571;
+413326;pontoise;PE;28/10/2023;18/06/2024;oui;24/09/1989;34;1;27;spont;non;PE;;;35,4285714285714;7;0;2/sem;eutrophe;apres 25SA;oui;monotherapie;normal;0,6/24h;PE;28/06/2024;36,8571428571429;;declt prog;10;0;;eutrophe;Trandate;normal;PTU 1,6/24h;declt prog;37;PE
+415784;pontoise;HTAC;09/08/2023;26/01/2024;oui;14/12/1980;42;3;26;spont;non;;;;26,2857142857143;3;0;1/sem;macrosomie;avant 20SA;oui;tritherapie;normal;neg;HTAC;23/03/2024;34,4285714285714;;Hospit HTA;57;1;"Hospit 3jr 
+pour HTA + CU";macrosomie;Kardegic Trandate Loxen Aldomet;normal;negatif;HTA;35,1428571428571;HTA
+423266;DELAFONTAINE;HTAC;28/08/2023;31/03/2024;oui;06/03/1987;36;4;35;spont;non;PE/HRP;;;32,8571428571429;3;0;1;eutrophe;avant 20SA;oui;monotherapie;normal;neg;HTAC;01/04/2024;33;;hospit bio;1;1;"hospit
+pour cytolyse et HTA";eutrophe;Loxen;cytolyse;neg;ano bio;34,1428571428571;HRP
+423810;argenteuil;HTAg;22/11/2023;17/06/2024;oui;19/09/1990;33;1;38;spont;non;;;;31,7142857142857;2;1;1/sem;macrosomie;apres 20SA;non;monotherapie;normal;neg;HTAg;07/08/2024;38,5714285714286;;declt prog;51;0;;macrosomie;Trandate;normal;negatif;declt prog;39;HTAG
+426355;DELAFONTAINE;HTAC;19/02/2023;29/02/2024;oui;22/05/1985;37;4;38;spont;non;RCIU;DT2;;34,1428571428571;2;0;1;eutrophe;avant 20SA;non;aucun;normal;neg;HTAC;02/04/2024;38,8571428571429;;declt prog;33;0;;eutrophe;aucun;normal;neg;declt prog;39;DT2
+432835;DELAFONTAINE;HTAC;06/12/2023;06/06/2024;oui;13/02/1988;35;2;33;spont;non;PE/MFIU;DGNID;;28,1428571428571;2;0;1;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAC;14/08/2024;38;;declt prog;69;0;;eutrophe;Trandate Loxen;normal;neg;declt prog;38,2857142857143;"fenetre 
+therapeutique"
+437843;DELAFONTAINE;HTAC;14/08/2023;14/02/2024;oui;16/08/1993;29;3;40;spont;non;PE;DT2;;28,1428571428571;3;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;24/04/2024;38,1428571428571;;W spont;70;0;;macrosomie;Aldomet;normal;neg;W spont;38,1428571428571;
+452629;DELAFONTAINE;HTAC;02/05/2023;30/11/2023;oui;22/03/1982;41;3;32;spont;non;HRP MFIU;DGID;;32,2857142857143;3;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;06/01/2024;37,5714285714286;;declt prog;37;0;;eutrophe;Aldomet;thrombopenie;neg;declt prog;38;HTA/DGID
+460987;DELAFONTAINE;HTAC;19/11/2023;22/05/2024;oui;27/06/1983;40;6;37;spont;non;PE;;MAP;28,4285714285714;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;27/07/2024;37,8571428571429;;W spont;66;1;1er hospit ARCF et HTA;eutrophe;Aldomet;normal;neg;W spont;37,2857142857143;
+460992;DELAFONTAINE;HTAC;09/10/2023;30/04/2024;oui;11/11/1984;38;1;39;spont;non;PE;DGID;;31,7142857142857;3;0;1/sem;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;14/06/2024;37,2857142857143;;W spont;45;2;"2 hospit pour
+ HTA et suspicion PE";eutrophe;Aldomet Loxen;normal;neg;W spont;37,2857142857143;
+467408;DELAFONTAINE;HTAC;31/07/2023;29/01/2024;oui;07/06/1984;39;3;29;spont;non;;DGNID;;28;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;17/04/2024;39,2857142857143;;W spont;79;0;;eutrophe;Trandate;normal;neg;W spont;39,2857142857143;
+472809;argenteuil;HTAc;22/02/2024;11/09/2024;oui;13/11/1986;37;4;37;spont;non;;DT2;;30,8571428571429;2;1;2/mois;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAc;30/10/2024;37,8571428571429;;declt prog;49;0;;eutrophe;Trandate;normal;negatif;declt prog;38,2857142857143;DT2 +HTA
+479535;pontoise;PE;02/05/2023;15/10/2023;oui;24/05/1995;27;3;23;spont;non;PE;;"oncocytome 
+rénale a 25SA";25,7142857142857;7;0;2;macrosomie;apres 20SA;oui;monotherapie;normal;0,5/24;PE;01/01/2024;36,8571428571429;;declt prog;78;0;0;macrosomie;Trandate;normal;0,4/24;declt prog;37;PE
+480470;argenteuil;HTAc;02/10/2023;20/05/2024;oui;03/01/1993;30;1;28;spont;non;"PE
+RCIU";DGID;;35;3;1;1/sem;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;20/06/2024;39,4285714285714;;declt prog;31;0;;eutrophe;Aldomet;normal;negatif;declt prog;39,7142857142857;HTAC
+481813;DELAFONTAINE;HTAG;05/10/2023;07/03/2024;oui;27/11/1982;40;3;37;spont;non;;DGID;;37,1428571428571;3;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;11/06/2024;37,7142857142857;PE;declt en urg;96;1;;eutrophe;Loxen;normal;P/C +;PE;37,7142857142857;PE
+485121;pontoise;HTAc;12/06/2023;18/12/2023;oui;24/10/1983;39;2;28;spont;non;PE;;cerclage;27,7142857142857;3;0;1/mois;eutrophe;avant 20SA;oui;bitherapie;normal;neg;HTAC;14/01/2024;32,8571428571429;;W spont;27;0;;eutrophe;Aspegic Trandate Loxen;normal;negatif;W spont;32,8571428571429;W Spont
+487721;argenteuil;HTAG;10/07/2023;05/02/2024;oui;26/06/1986;37;5;47;spont;non;MFIU;DGNID;;32;2;1;2/mois;macrosomie;apres 20SA;non;monotherapie;normal;neg;HTAG;12/03/2024;37,2857142857143;;declt prog;36;0;;macrosomie;Trandate;normal;negatif;declt prog;37,4285714285714;ATCD MFIU
+489542;pontoise;HTAc;18/04/2024;11/10/2024;oui;17/11/1992;31;1;42;spont;non;"Pe/Help
+Préma ";;;27;3;0;1/sem;macrosomie;avant 20SA;non;bitherapie;normal;neg;HTAC;31/12/2024;38,7142857142857;;declt en urg;81;1;HTA severe;eutrophe;Trandate Loxen;normal;negatif;ARCF;38,7142857142857;ARCF
+492686;argenteuil;HTAc;09/12/2023;24/06/2024;oui;26/08/1990;33;1;32;PMA;non;PE;DGID;;29,8571428571429;2;1;2/mois;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAc;19/08/2024;38,2857142857143;;declt prog;56;0;TA non stable;eutrophe;Trandate Loxen;normal;negatif;declt prog;38,4285714285714;PE
+493806;DELAFONTAINE;HTAG;29/11/2023;16/06/2024;oui;25/08/1989;34;3;42;spont;non;HTAG;;RPM;30,5714285714286;3;0;1;eutrophe;apres 20SA;oui;monotherapie;normal;neg;HTAG;07/07/2024;33,1428571428571;;Hospit MTR;21;2;"2 hospit pour
+MTR";eutrophe;Trandate;normal;P/C +;W spont;34,7142857142857;
+497026;DELAFONTAINE;HTAC;10/11/2023;16/05/2024;oui;04/09/1982;41;1;33;spont;non;;DGID;;28,8571428571429;2;0;1;eutrophe;avant 20SA;oui;monotherapie;plq 130;neg;HTAC;27/05/2024;30,4285714285714;;hospit  MTR;11;1;"1 hospit
+pour MTR";eutrophe;Loxen;stable;neg;W spont;31,5714285714286;
+508218;MONTFERMEIL;HTAG;02/01/2024;18/07/2024;oui;24/04/1998;25;0;47;spont;non;FCT;DGID;;30,2857142857143;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;15/09/2024;38,7142857142857;;Declt prog;59;0;;eutrophe;Trandate;normal;Neg;declt prog;39;DGID desequ
+509004;MONTFERMEIL;HTAC;24/04/2023;16/11/2023;oui;29/08/1999;23;0;40;spont;non;;DGID;;31,1428571428571;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;09/01/2024;38,4285714285714;;Declt prog;54;0;;macrosomie;Trandate;normal;Neg;declt prog;38,5714285714286;DGID desequ
+509494;MONTFERMEIL;HTAG;11/05/2023;09/11/2023;oui;30/10/1996;26;0;23;spont;non;;DGNID;;29,1428571428571;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;23/01/2024;38,8571428571429;;declt prog;75;0;;eutrophe;Aldomet;normal;Neg;declt prog;39;DGNID desequ
+509863;DELAFONTAINE;HTAC;05/06/2023;26/12/2023;oui;31/12/1988;34;2;35;spont;non;;DGID;;31,1428571428571;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;13/02/2024;38,1428571428571;;"hospit 
+pour asthme";49;1;crise d asthme a 38SA;eutrophe;Loxen;normal;neg;asthme;38,5714285714286;W spont
+511597;DELAFONTAINE;HTAC;08/06/2023;12/12/2023;oui;25/08/1985;37;4;40;spont;non;prema;DGID;;28,7142857142857;3;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;01/02/2024;36;;NC;51;2;"1 cs urg 
+pour HTA => RAD
+
+hospit a 36SA";RCIU;"Loxen 
+Trandate";normal;neg;NC;36;NC
+511761;DELAFONTAINE;HTAC;24/08/2023;27/02/2024;oui;12/12/1981;41;5;28;spont;non;PE;DGID;;28,7142857142857;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;07/05/2024;38,7142857142857;;declt prog;70;0;;macrosomie;Aldomet;normal;neg;declt prog;39;macrosomie
+511909;MONTFERMEIL;HTAc;16/07/2023;16/01/2024;oui;13/10/1989;33;1;40;spont;non;PE;;;28,5714285714286;2;0;1;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAC;29/03/2024;40,2857142857143;;W spont;73;0;;eutrophe;Loxen acebutolol ;normal;Neg;W spont;40,2857142857143;
+512431;argenteuil;HTAc;10/05/2023;08/12/2023;oui;25/02/1993;30;3;43;spont;non;;DGID;;32,2857142857143;2;0;1/mois;macrosomie;arret  debut de grossesse;non;aucun;normal;neg;HTAC;22/02/2024;38,5714285714286;;declt prog;76;0;;eutrophe;insuline;;;declt prog;39;DGID
+512723;pontoise;HTAc;03/06/2023;18/12/2023;oui;06/06/1985;37;0;25;spont;non;;DT2 mody;;30,2857142857143;3;0;1/sem;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAC;12/02/2024;37,8571428571429;;declt prog;56;0;;eutrophe;Aldomet Loxen;normal;negatif;declt prog;38;DT+ HTA
+513490;DELAFONTAINE;HTAC;17/08/2023;19/02/2024;oui;10/09/1985;37;2;30;spont;non;RCIU;DGNID;;28,5714285714286;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;02/05/2024;39;;W spont;73;0;;eutrophe;Loxen;normal;neg;W spont;39;
+513515;MONTFERMEIL;HTAG;04/07/2023;25/01/2024;oui;28/08/1984;38;1;28;spont;non;HTAG;DT2;;29,4285714285714;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;30/03/2024;37,8571428571429;;declt prog;65;2;"2 passages aux 
+urg pour ARCF et HTA";eutrophe;Aldomet Loxen;normal;Neg;declt prog;38;HTA+DG
+513523;DELAFONTAINE;HTAG;02/09/2023;30/04/2024;oui;19/06/1981;42;2;30;spont;non;;DGID;;36,4285714285714;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;14/05/2024;38,4285714285714;;hospit  ARCF;14;1;"1 episode d 
+ARCF";eutrophe;Loxen;normal;neg;ARCF;38,4285714285714;ARCF
+513779;DELAFONTAINE;HTAG;04/07/2023;03/01/2024;oui;28/12/1995;27;0;29;spont;non;;DGID;;28,1428571428571;3;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;05/03/2024;37;"PE
+RCIU";declt en urg;62;0;;RCIU;Loxen;normal;PTU 0,4/L;RCIU;37,2857142857143;RCIU/PE
+513820;MONTFERMEIL;HTAC;02/07/2023;15/01/2024;oui;27/12/1992;30;3;24;spont;non;RCIU;;;30,1428571428571;3;0;1;eutrophe;avant 20SA;non;monotherapie;thrombopénie (120);neg;HTAC;23/03/2024;39,8571428571429;;W spont;68;0;;eutrophe;Aldomet;"thrombopenie
+ stable";neg;W spont;39,8571428571429;
+514032;pontoise;HTAc + PE;14/05/2023;09/01/2024;oui;09/12/1986;36;0;26;spont;non;;DGID;;36,2857142857143;7;0;1/sem;eutrophe;avant 20SA;oui;tritherapie;normal;0,5/24H;PE surajoutée;13/01/2024;36,8571428571429;;declt prog;4;0;;eutrophe;Trandate Loxen Aldomet;normal;1g/24h;declt prog;37;PE
+514329;DELAFONTAINE;HTAC;22/09/2023;22/03/2024;oui;02/11/1982;40;3;25;spont;non;;;;28;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;03/06/2024;40,1428571428571;;declt prog;73;3;"2 Hospit 
+pour HTA (30SA et 37SA)
+2eme hospit pour Asthme 36SA";eutrophe;"Loxen
+Aldomet";normal;neg;declt prog;40,1428571428571;HTA
+514559;MONTFERMEIL;HTAC;24/08/2023;22/02/2024;oui;17/05/1992;31;0;37;spont;non;;DGID;;28;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;07/05/2024;38,7142857142857;;Decl prog;75;0;;macrosomie;nifedipine;normal;Neg;declt prog;39;DGID desequ
+514593;DELAFONTAINE;HTAG;30/06/2023;29/02/2024;oui;23/10/1986;36;1;33;spont;non;HTAG;DGID;;36,8571428571429;3;0;1;RCIU;apres 20SA;non;monotherapie;normal;neg;HTAG;13/03/2024;38,8571428571429;;declt prog;13;0;;RCIU;Loxen;normal;neg;declt prog;39;
+514682;pontoise;HTAC;19/06/2023;22/01/2024;oui;16/01/1993;30;0;25;spont;non;;DGID;;33;3;0;1/sem;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;14/02/2024;36,2857142857143;PE;hospit PE + ricu;23;1;RCIU;RCIU;Trandate;normal;PTU 0,32/24;sfhta;36,2857142857143;SFHTA + rciu
+515293;argenteuil;HTAC;08/09/2023;26/03/2024;oui;28/03/1982;41;1;25;PMA;BIBI;;DT2;RCIU*2;30,5714285714286;3;1;1/sem;RCIU;apres 20SA;oui;bitherapie;normal;neg;HTAc;13/04/2024;32,7142857142857;;hospit ARCF;18;1;"Hospit 
+pour ARCF";RCIU;"Trandate
+Loxen";normal;negatif;ARCF;32,7142857142857;ARCF
+515336;argenteuil;PE;12/08/2023;06/02/2024;oui;23/01/1995;28;0;37;PMA;MFIU JB 12SA;;DGID;;27,4285714285714;2;1;1/sem;eutrophe;apres 20SA;oui;monotherapie;normal;neg;HTAg;03/04/2024;36;;declt prog;57;2;"2 réhospit 
+en GHR
+13-15 fev
+18/-21 fev
+colique nephretique";eutrophe;Trandate;normal;"0,39/24h
+P/C 36";declt prog;36;PE
+515419;argenteuil;PE;21/06/2024;02/02/2024;oui;20/06/1984;40;0;29;PMA;non;;;;33,8571428571429;2;1;1/sem;eutrophe;apres 20SA;oui;monotherapie;"thrombopénie
+ 140";0,46/L;PE;23/02/2024;36,8571428571429;;declt prog;21;0;;eutrophe;Trandate;normal;"0,32/24h
+P/C 90";declt prog;37,2857142857143;PE
+515555;argenteuil;PE;29/06/2024;23/02/2024;oui;16/12/1999;24;0;33;spont;non;;DGID;"Cholestase
+PAG";35,7142857142857;3;1;1/sem;RCIU;apres 20SA;non;monotherapie;"A/A *4
+thrombopénie";0,6/L;PE;28/02/2024;36,8571428571429;;declt prog;5;1;"1 hospit 48h 
+pour HTA";RCIU;Trandate;"A/A *2
+thrombopénie";0,3/L;declt prog;37,2857142857143;RCIU
+516202;argenteuil;PE;19/07/2023;21/02/2024;oui;10/03/1977;46;0;23;PMA;non;;;;33;2;1;2/sem;eutrophe;apres 20SA;non;bitherapie;normal;0,5/24h;PE;04/03/2024;34,5714285714286;;Hospit PE ;12;0;;eutrophe;Aspegic Trandate;normal;1,5/24h;PTU;34,5714285714286;PE
+516747;DELAFONTAINE;HTAC;12/10/2023;05/05/2024;oui;04/08/1991;32;3;48;spont;non;;DGNID;;31,4285714285714;2;0;1;macrosomie;avant 20SA;non;monotherapie;normal;neg;HTAC;23/06/2024;38,4285714285714;;W spont;49;1;"hospit pour 
+mise sous insuline a 32SA";macrosomie;Trandate;normal;neg;W spont;38,4285714285714;
+516775;argenteuil;HTAG;10/09/2023;05/03/2024;oui;03/09/1984;39;2;38;spont;non;PE;;;27,2857142857143;2;1;1/sem;eutrophe;apres 20SA;non;monotherapie;normal;"0,42/L
+0,16/24h";HTAG;03/05/2024;35,7142857142857;PE;urg pour Bio;59;2;"1 hospit pour PE
+2 eme hospit pourr ano bio";macrosomie;Trandate;normal;positif;ano Bio;36,1428571428571;Pe severe
+516943;argenteuil;PE;13/07/2023;04/03/2024;oui;22/02/1993;30;0;23;spont;non;;DGNID;RCIU;36,1428571428571;2;2;1/sem;PAG;apres 20SA;non;monotherapie;normal;1,4/24;PE;08/03/2024;36,7142857142857;;hospit ARCF;4;1;ARCF a 36+5;RCIU;Trandate;normal;3,9/24;ARCF;36,7142857142857;ARCF
+517108;DELAFONTAINE;HTAC;16/11/2023;15/05/2024;oui;15/06/1999;24;1;33;spont;non;PE;DGID;RCIU;28;3;0;1;RCIU;avant 20SA;oui;monotherapie;normal;neg;HTAC;04/07/2024;35;PE;hospit PE;50;1;PE;RCIU;amlodipine;normal;P/C +;declt prog;37,1428571428571;PE
+517195;DELAFONTAINE;HTAC;10/11/2023;10/05/2024;oui;30/04/1988;35;1;48;spont;non;;;RCIU;28;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;25/07/2024;38,8571428571429;;declt prog;76;0;;eutrophe;Loxen;normal;neg;declt prog;39;IMC/HTA
+517489;DELAFONTAINE;HTAC;29/12/2023;11/07/2024;non;11/01/1985;38;4;38;spont;non;;DGID;;29,7142857142857;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;05/09/2024;37,8571428571429;;declt prog;56;0;;macrosomie;Trandate;"thrrombopénie
+plq 100";neg;declt prog;38;ano BIO
+517507;argenteuil;HTAC;15/08/2023;15/03/2024;oui;06/04/1989;34;3;34;spont;non;;DGID;;32,4285714285714;2;1;1/sem;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAc;16/04/2024;37;;declt prog;32;0;;eutrophe;"Trandate
+Aldomet";normal;negatif;declt prog;37;PE
+517666;argenteuil;HTAC;23/08/2023;25/03/2024;oui;15/01/1983;40;4;39;spont;non;;;;32,7142857142857;7;1;1/sem;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAc;17/04/2024;36;;hospit ARCF;23;2;"1 hospt pour TA desequilibré
+ARCF";RCIU;"Trandate
+Loxen";normal;0,9/L;ARCF;36;ARCF
+517696;pontoise;HTAg;10/10/2023;22/03/2024;oui;17/12/1981;41;0;18;PMA;non;;;RCIU T2;25,2857142857143;3;0;1/sem;RCIU;apres 20SA;oui;monotherapie;normal;neg;HTAG;22/03/2024;25,2857142857143;;hospit ARCF HTA;0;1;;RCIU;;;;ARCF;27;RCIU
+518247;pontoise;PE;21/08/2023;29/03/2024;oui;30/07/1996;27;0;28;spont;non;;;RCIU;33,5714285714286;7;0;2/sem;RCIU;apres 20SA;oui;bitherapie;normal;<4g/24h;PE;12/04/2024;35,5714285714286;;Acct préma;14;0;;RCIU;Trandate Loxen;A/A 2* NL;>7g/24;W spont;35,5714285714286;
+518267;DELAFONTAINE;HTAC;15/11/2023;16/05/2024;oui;04/04/1986;37;1;30;spont;non;;;RCIU 28SA;28,1428571428571;3;0;1;RCIU;avant 20SA;NC;bitherapie;normal;neg;HTAC;11/07/2024;36,1428571428571;PE;declt en urg;56;1;PE surajoutée;RCIU;Trandate Loxen;normal;P/C+;PE;36,1428571428571;PE
+518318;MONTFERMEIL;HTAC;09/11/2023;08/05/2024;oui;29/06/1983;40;4;31;spont;non;;DGNID;;27,8571428571429;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;02/08/2024;40,2857142857143;;W spont;86;0;;eutrophe;;normal;Neg;W spont;40,2857142857143;
+518701;DELAFONTAINE;HTAC;03/12/2023;07/06/2024;oui;01/07/1981;42;0;30;PMA;non;;DT2;;28,7142857142857;2;0;1;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAC;13/08/2024;38,2857142857143;;W spont;67;0;;eutrophe;Aldomet Trandate;normal;neg;W spont;38,4285714285714;
+518824;argenteuil;HTAG;13/09/2023;12/04/2024;oui;21/02/1982;41;4;31;spont;non;;DT2;;32,2857142857143;2;1;2/mois;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;24/05/2024;38,2857142857143;;declt prog;42;0;;eutrophe;Loxen;normal;negatif;declt prog;38,7142857142857;DT2 +HTA
+518898;MONTFERMEIL;HTAC;31/08/2023;12/04/2024;oui;17/02/1988;35;0;43;spont;non;;DGNID;;32,1428571428571;2;0;2;eutrophe;apres 20SA;oui;bitherapie;A/A*2;1,2;PE;16/04/2024;34,7142857142857;;hospit HTA;4;2;"1 hospit a 32 pour PE
+2 eme  hospit pour 
+HTA severe";eutrophe;Trandate Loxen;normal;0,8;HTA;NC;NC
+518975;DELAFONTAINE;HTAG;25/10/2023;08/06/2024;oui;15/09/1984;39;2;28;spont;non;HRP;;RCIU;34,4285714285714;3;0;1;RCIU;apres 20SA;non;monotherapie;normal;neg;HTAG;28/06/2024;37,2857142857143;;W spont;20;0;;RCIU;Loxen;normal;neg;W spont;37,2857142857143;
+519003;DELAFONTAINE;HTAC;19/12/2023;18/06/2024;oui;06/03/1996;27;1;29;spont;non;;;;28;2;0;1;eutrophe;avant 20SA;oui;monotherapie;normal;neg;HTAC;31/08/2024;38,5714285714286;PAG;W spont;74;1;"hospi MAP 
+et RCIU";RCIU;Loxen;normal;neg;W spont;38,5714285714286;
+519206;MONTFERMEIL;HTAC;22/10/2023;30/04/2024;oui;01/01/1983;40;2;32;spont;non;;;;29,2857142857143;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;28/06/2024;39;;W spont;59;0;;eutrophe;Trandate;normal;Neg;W spont;39;
+519588;argenteuil;PE;19/10/2023;14/05/2024;oui;31/10/1992;30;1;21;spont;non;;DGID;;33,1428571428571;3;1;2/sem;eutrophe;apres 20SA;oui;bitherapie;normal;2g/24;PE;19/05/2024;33,8571428571429;;Hospi PTU;5;0;;eutrophe;Trandate Loxen;normal;hyper PTU;PTU;34;PTU
+519611;pontoise;HTAC;13/09/2023;01/05/2024;oui;30/04/1988;35;3;36;spont;non;;DGID;;35;7;0;1/sem;eutrophe;avant 20SA;oui;monotherapie;normal;neg;HTAC;14/05/2024;36,8571428571429;;declt prog;13;0;;eutrophe;Trandate;normal;negatif;declt prog;37;HTA c
+519933;pontoise;HTAC;08/10/2023;06/05/2024;oui;25/03/1985;38;3;26;spont;non;;;;32,1428571428571;3;0;1/mois;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAC;03/06/2024;36,1428571428571;HTA severe;Hospit HTA;28;0;;eutrophe;Trandate Loxen;normal;negatif;HTA;36,4285714285714;arcf
+520145;MONTFERMEIL;HTAC;11/11/2023;17/05/2024;oui;28/03/1979;44;3;27;spont;non;;;;28,8571428571429;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;08/08/2024;41;;declt prog;83;0;;eutrophe;Loxen;normal;Neg;terme;41;terme
+520148;MONTFERMEIL;HTAC;04/11/2023;22/05/2024;oui;26/12/2000;22;1;46;spont;non;;DGNID;;30,5714285714286;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;19/07/2024;38,5714285714286;;Declt prog;58;0;;eutrophe;Loxen;normal;Neg;declt prog;39,2857142857143;DGID desequ
+520317;DELAFONTAINE;HTAC;28/01/2024;29/07/2024;oui;02/01/1982;42;2;59;spont;non;;DT2;;28,1428571428571;3;0;1;eutrophe;avant 20SA;non;bitherapie;normal;neg;HTAC;12/10/2024;38,8571428571429;;declt prog;75;1;"1 hospit 
+pour HTA";eutrophe;Eupressyl Loxen;A/A limite;neg;declt prog;39;"HTA
+DT2"
+520352;pontoise;HTAg;25/10/2023;15/05/2024;oui;02/11/1984;38;1;25;PMA;non;PE;;;31;3;0;1/sem;eutrophe;avant 20SA;oui;bitherapie;normal;neg;HTAC;06/07/2024;38,4285714285714;;declt prog;52;0;;eutrophe;Trandate Aldomet;normal;negatif;declt prog;5,57142857142857;HTA G
+520476;argenteuil;HTAC;02/10/2023;24/05/2024;oui;04/08/1983;40;4;43;spont;non;;DT2;;35,5714285714286;2;1;1/mois;macrosomie;arret  debut de grossesse;non;aucun;normal;neg;HTAC;22/06/2024;38,2857142857143;;w spont;29;0;;macrosomie;Aucun;normal;negatif;W spont;38,2857142857143;
+521049;argenteuil;HTAG;15/11/2023;07/06/2024;oui;26/09/1991;32;1;31;spont;non;;;"RCIU<1er
+CIV fœtale";31,2857142857143;5;2;2/sem;RCIU;apres 20SA;oui;monotherapie;normal;neg;HTAg;10/06/2024;31,7142857142857;PE sur ajouté;Hospit RCIU;3;0;"RCIU
+Hydramnios";RCIU;Trandate;normal;positive;PE;31,8571428571429;PE
+521361;MONTFERMEIL;HTAC;13/12/2023;18/06/2024;oui;11/09/1987;36;2;32;spont;non;PE;DGNID;;28,8571428571429;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;26/08/2024;38,8571428571429;DGID;Declt prog;69;0;;eutrophe;Trandate;normal;Neg;declt prog;39;ut biciat
+521825;pontoise;PE;22/10/2023;13/06/2024;oui;03/10/1992;31;2;23;spont;non;PE;;;35,5714285714286;7;0;2/sem;eutrophe;apres 20SA;non;monotherapie;normal;1,72g/24;PE;22/06/2024;36,8571428571429;;declt prog;9;0;;eutrophe;Trandate;normal;>7g/24h;declt prog;37;PE
+521859;pontoise;PE;08/11/2023;19/06/2024;oui;18/12/1993;29;0;32;spont;non;;DGNID;;34;7;0;2/sem;eutrophe;apres 20SA;oui;bitherapie;normal;>4g/24h;PE;02/07/2024;35,8571428571429;;Hospit  HTA;13;0;;eutrophe;Trandate Loxen;créat >100;PTU>10/24;HTA;36,2857142857143;"PE
+creat>100"
+521930;pontoise;PE;26/10/2023;14/06/2024;oui;15/09/1988;35;0;35;spont;non;;;;35,1428571428571;7;0;1/sem;eutrophe;apres 25SA;oui;bitherapie;normal;0,7/24h;PE;18/06/2024;35,7142857142857;;Hospit  HTA;4;0;;eutrophe;Trandate Loxen;normal;stable;HTA;37;PE
+522270;pontoise;PE;10/04/2024;27/06/2024;oui;08/10/1984;39;2;24;spont;GEM;;DGID;RCIU JA;34,7142857142857;7;0;2/sem;RCIU;apres 20SA;oui;bitherapie;normal;2,78/24;PE;02/07/2024;35,2857142857143;;Hospit RCIU;5;0;"anomalie 
+doppler JA";RCIU;Trandate Aldomet;normal;stable;RCIU;NC;TIU
+522367;pontoise;HTAC;31/12/2023;01/07/2024;oui;17/09/1983;40;4;29;spont;non;HRP MFIU;;;28,1428571428571;2;0;1/sem;eutrophe;avant 20SA;non;tritherapie;normal;neg;HTAC;25/08/2024;36;;Hospit MTR;55;0;;macrosomie;Loxen Trandate;normal;negatif;MTR;37,4285714285714;HTA+ATCD
+522718;pontoise;HTAC;01/11/2023;02/07/2024;oui;26/03/1983;40;1;26;spont;non;PE;;RCIU;36,8571428571429;3;0;1/sem;RCIU;avant 20SA;non;monotherapie;normal;neg;HTAC;11/07/2024;38,1428571428571;RCIU;declt en urg;9;0;"cassure 
+croissance";RCIU;Trandate;normal;negatif;RCIU;38,1428571428571;RCIU
+522883;argenteuil;PE;10/01/2024;06/07/2024;oui;12/08/1992;31;0;25;PMA;non;;DGNID;;27,4285714285714;2;1;2/sem;eutrophe;apres 20SA;oui;bitherapie;normal;0,4/24;PE;13/09/2024;37,2857142857143;PAG;declt prog;69;2;"2 hospit 
+pour MAP";RCIU;Trandate Loxen;thrombopenie legère;PTU 0,5/24;declt prog;37,4285714285714;PE
+523229;DELAFONTAINE;HTAG;13/01/2024;19/07/2024;oui;10/01/1990;34;0;34;spont;non;FCT;DGID;RPM;28,8571428571429;3;0;1;eutrophe;apres 20SA;oui;monotherapie;normal;neg;HTAG;05/08/2024;30,7142857142857;;"urg pour 
+HTA et ARCF";17;1;"hospi HTA 
+et ARCF";RCIU;Loxen;normal;neg;ARCF;30,8571428571429;ARCF
+523602;pontoise;HTAG;14/02/2024;25/07/2024;oui;01/01/1992;32;1;26;spont;non;;;;25,2857142857143;3;0;1/sem;eutrophe;apres 20SA;oui;monotherapie;normal;neg;HTAG;05/10/2024;35,5714285714286;"RCIU
+PE";Hospit HTA;72;2;"1er hospit pour HTA severe
+2eme hospit pour PE sur ajouté";RCIU;Trandate Loxen;normal;"PTU 0.87/L
+P/C 134";HTA;36;PE
+523846;pontoise;HTAc + PE;15/12/2023;20/07/2024;oui;16/08/1985;38;0;27;spont;non;;;;33,1428571428571;7;0;2/sem;eutrophe;avant 20SA;non;monotherapie;normal;0,48/24;PE surajoutée;16/08/2024;37,1428571428571;;declt prog;27;0;;eutrophe;aucun;normal;0,5/24;declt prog;37,2857142857143;PE
+524050;DELAFONTAINE;HTAC;07/01/2024;16/08/2024;oui;04/10/1991;32;1;30;spont;non;RCIU;;;33,7142857142857;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;23/09/2024;39,1428571428571;;W spont;38;0;;eutrophe;Loxen;normal;neg;W spont;39,1428571428571;
+524225;argenteuil;HTAC;24/02/2024;12/08/2024;oui;22/06/1988;35;1;29;spont;non;"PE
+HRP MFIU";DGNID;;26;3;1;1/sem;eutrophe;avant 20SA;non;bitherapie;normal;3g/25;HTAc;31/10/2024;37,7142857142857;;declt prog;80;2;"hospit a 35 SA pour HTA
+
+hospit a 
+36SA fièvre";eutrophe;Trandate Loxen;normal;negatif;declt prog;38,2857142857143;HTAC
+524484;argenteuil;HTAG;28/01/2024;29/08/2024;oui;09/11/1984;39;2;40;spont;non;;DGID;;32,5714285714286;2;1;1/sem;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;07/10/2024;38,1428571428571;;declt prog;39;0;;RCIU;Trandate;normal;0,3/24;declt prog;38,4285714285714;DGID + HTA
+524742;DELAFONTAINE;HTAC;22/01/2024;07/08/2024;non;23/08/1995;28;1;31;spont;non;;DGID;;32,8571428571429;2;0;1;eutrophe;avant 20SA;non;aucun;normal;neg;HTAC;05/10/2024;38,7142857142857;;declt prog;59;0;;eutrophe;aucun;normal;neg;declt prog;39;"DGID
+HTA"
+525068;pontoise;HTAg;12/02/2024;10/09/2024;oui;18/02/1990;33;1;35;spont;non;MFIU;DT2;;32,1428571428571;3;0;1/mois;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAc;21/10/2024;38;;declt prog;41;0;;eutrophe;Trandate;normal;negatif;declt prog;38,4285714285714;HTAc+dt2
+525515;MONTFERMEIL;HTAC;15/04/2024;23/10/2024;oui;14/11/1982;41;4;34;spont;non;;DT2;;29,2857142857143;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;21/12/2024;37,5714285714286;;W spont;59;2;"cs aux 
+urgences pour HTA sans hospit";eutrophe;Aldomet;normal;Neg;W spont;37,5714285714286;
+525713;DELAFONTAINE;HTAC;21/04/2024;29/10/2024;non;01/04/1986;38;3;NC;spont;non;"PE
+MFIU";DGNID;;29,2857142857143;2;0;1;eutrophe;avant 20SA;oui;bitherapie;Creat elevé;neg;HTAC;01/11/2024;29,7142857142857;PE;hospit PE;3;1;PE surajoutée;eutrophe;"Loxen
+Trandate";creat stable;PTU 0,6/L;PE;30,2857142857143;"SFHTA
+Ano Bio"
+525863;argenteuil;HTAC;20/02/2024;20/09/2024;oui;24/07/1984;39;1;38;spont;non;;DT2;;32,4285714285714;2;1;1/mois;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAc;30/10/2024;38,2857142857143;;declt prog;40;0;;eutrophe;Trandate;;negatif;declt prog;38,4285714285714;DT2 +HTA
+526422;MONTFERMEIL;HTAC;31/03/2024;04/10/2024;oui;18/12/1984;39;3;32;spont;non;PE;;;28,7142857142857;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;21/12/2024;39,7142857142857;;W spont;78;0;;eutrophe;Trandate;normal;Neg;W spont;39,8571428571429;
+526609;argenteuil;HTAC;04/03/2024;25/09/2024;oui;26/01/1984;40;0;26;spont;non;;DGID;;31,2857142857143;2;1;1/sem;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAc;14/11/2024;38,4285714285714;;declt prog;50;0;;eutrophe;Trandate;normal;negatif;declt prog;38,8571428571429;HTAC
+526684;pontoise;HTAC;03/02/2024;07/10/2024;oui;01/10/1981;42;2;32;spont;non;;DGNID;;37,2857142857143;3;0;1/sem;eutrophe;avant 20SA;non;bitherapie;"A/A *2
+creat 100";neg;HTAC;18/10/2024;38,8571428571429;;declt prog;11;0;;eutrophe;"Trandate
+Loxen";stable;negatif;declt prog;39;HTAc
+526788;pontoise;HTAc + PE;21/04/2024;29/09/2024;oui;17/03/1983;41;5;28;spont;non;MFIU;DGNID;;25,5714285714286;7;0;2/sem;eutrophe;avant 20SA;oui;bitherapie;normal;0,3/24;PE surajoutée;21/12/2024;36,8571428571429;;declt prog;83;1;"hospit 3jr 
+pour ARCF";eutrophe;Loxen Aldomet;normal;0,4/24;declt prog;37;PE
+527122;pontoise;HTAc + PE;22/05/2024;08/10/2024;oui;31/12/1985;38;5;27;spont;non;HTAG;;;21,8571428571429;7;0;1/sem;eutrophe;avant 20SA;oui;bitherapie;normal;0,44/24;PE surajoutée;06/11/2024;26;RCIU;Hospit RCIU;29;0;;RCIU;Trandate Loxen;normal;stable;RCIU;26,5714285714286;ARCF
+527855;argenteuil;HTAG;09/04/2024;25/10/2024;oui;02/06/1983;40;3;31;spont;non;PE;;;30,4285714285714;3;1;1/sem;eutrophe;apres 20SA;oui;monotherapie;normal;neg;HTAG;09/11/2024;32,5714285714286;;hospit MTR;15;2;"1/hospit 
+pour MAP
+2/hospit pour MTR";eutrophe;Trandate;normal;negatif;MTR;32,7142857142857;MTR
+528319;argenteuil;PE;26/03/2024;09/11/2024;oui;04/07/1989;34;0;33;spont;non;;;RCIU;34,5714285714286;7;1;1/sem;RCIU;apres 20SA;oui;monotherapie;normal;neg;HTAG;14/11/2024;35,4285714285714;;Decl prog;5;0;;RCIU;Trandate;normal;negatif;declt prog;35,5714285714286;RCIU
+528617;pontoise;PE;14/05/2024;08/11/2024;oui;01/11/1994;29;1;30;spont;non;PE/préma;;;27,4285714285714;7;0;2/sem;eutrophe;avant 20SA;oui;monotherapie;normal;1g/24;PE surajoutée;08/11/2024;27,4285714285714;;Hospit HTA;0;1;;eutrophe;;;;HTA;28,7142857142857;ARCF/PE
+529607;argenteuil;HTAc + PTUc;26/04/2024;04/12/2024;oui;21/03/1993;31;1;NC;spont;non;;DGID;Nephropathie;33,7142857142857;2;;1/mois;eutrophe;avant 20SA;non;monotherapie;normal;3g/24;HTAC;20/12/2024;36;;hospi PE;16;0;;eutrophe;Loxen;normal;>5g/24;PTU;36,4285714285714;PE
+529934;pontoise;PE;27/04/2024;05/12/2024;oui;28/06/1986;37;4;26;spont;BIBI;PE;DGID;;33,7142857142857;7;0;2/sem;eutrophe;avant 20SA;oui;monotherapie;normal;1,67g/24;PE surajoutée;15/12/2024;35,1428571428571;;Acct préma;10;0;;eutrophe;Trandate;normal;stable;W spont;35,1428571428571;
+530666;argenteuil;PE;26/04/2024;20/12/2024;oui;07/06/1995;28;0;40;spont;non;;;;36;2;1;1/sem;eutrophe;avant 20SA;non;bitherapie;normal;1,6/L;PE surajoutée;26/12/2024;36,8571428571429;;declt prog;6;1;"1 cs urg pour HTA/ARCF
+RAD";eutrophe;Loxen Aldomet;pas de contrôle;pas de contrôle;declt prog;37;PE
+"
+423828";DELAFONTAINE;HTAC;21/04/2023;07/11/2023;oui;31/12/1999;23;2;35;spont;non;MFIU;;;29,1428571428571;2;0;1;eutrophe;avant 20SA;non;monotherapie;normal;neg;HTAC;14/01/2024;38,7142857142857;;declt prog;68;1;"1 hospit 
+pour HTA";eutrophe;Loxen;normal;neg;Declt prog;39;HTA
+"
+511908";MONTFERMEIL;HTAG;06/05/2023;28/11/2023;oui;16/10/1985;37;0;22;spont;non;;;;31,4285714285714;2;0;1;eutrophe;apres 20SA;non;monotherapie;normal;neg;HTAG;27/01/2024;39,4285714285714;cholestase;W spont;60;0;;eutrophe;Aldomet;normal;Neg;W spont;39,4285714285714;

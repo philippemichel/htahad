@@ -1,0 +1,111 @@
+---
+title: "Délai hospitalisation - accouchement"
+---
+
+```{r}
+#| label: setup2
+
+rm(list = ls())
+#
+library(corrplot)
+library(readODS)
+library(baseph)
+# library(GGally)
+library(ggsci)
+# library(ggstats)
+library(tidyverse)
+library(missMDA)
+library(FactoMineR)
+library(factoextra)
+library(nnet)
+library(kableExtra)
+library(gtsummary)
+# library(DataExplorer)
+# library(colorspace)
+# library(forestmodel)
+library(janitor)
+# library(fmsb)
+library(labelled)
+#
+classeur <- "htahad.ods"
+expx <- FALSE
+if (expx) {
+  file.create(classeur)
+  file.remove(classeur)
+  write_ods(iris, classeur)
+}
+
+# sessionInfo()
+theme_gtsummary_language(language = "fr", decimal.mark = ",")
+# theme_gtsummary_journal(journal = "jama")
+options(OutDec = ",")
+ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test")
+load("datas/htahad.RData")
+```
+
+# Délai hospitalisation - accouchement
+
+```{r}
+#| label: tbl-delai
+#| tbl-cap: Délai hospitalisation - accouchement & Urgence
+
+
+tt |>
+  dplyr::select(issue, delai_hospit_acc) |>
+  tbl_summary(missing = "no", by = issue) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "delai", lg = TRUE)
+```
+
+```{r}
+#| label: fig-delai
+#| fig-cap: Délai hospitalisation - accouchement & Urgence
+
+tt |>
+  ggplot() +
+  aes(x = issue, y = delai_hospit_acc, fill = issue) +
+  geom_violin() +
+  geom_boxplot(width = 0.2, fill = "grey90") +
+  # annotate("text", x = 0.6, y = 48, label = "p = 0,3") +
+  labs(
+    title = "Délai hospitalisation - accouchement & Urgence",
+    subtitle = "p <0,001",
+    x = "Issue de l'HAD",
+    y = "Jours",
+    caption = "",
+    fill = ""
+  ) +
+  theme_light() +
+  scale_fill_jama() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title.x = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    axis.title.y = element_text(
+      size = 12,
+      angle = 90,
+      vjust = .5
+    ),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    legend.position = "none"
+  )
+```
+
+```{r}
+#| label: tbl-delaiurg
+
+tt |>
+  mutate(urg = if_else(issue == "urgences", "Urgences", "non Urgences")) |>
+  dplyr::select(urg, delai_hospit_acc) |>
+  tbl_summary(missing = "no", by = urg) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "dedelaiurg", lg = TRUE)
+```

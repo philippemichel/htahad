@@ -1,0 +1,105 @@
+---
+title: "Généralités"
+cache: false
+---
+
+**Investigateur principal : Mme Sandrine GUENEAU**
+
+:::{.callout-warning}
+
+"Appeler un statisticien après que l’expérience est terminée, c’est comme lui demander de faire une autopsie ; il pourra seulement déterminer la cause de l’échec de l’expérience."
+
+Sir Ronald A. Fisher, FRS
+:::
+
+```{r}
+#| label: setup
+ 
+rm(list = ls())
+#
+library(corrplot)
+library(readODS)
+library(baseph)
+# library(GGally)
+library(ggsci)
+# library(ggstats)
+library(tidyverse)
+library(missMDA)
+library(FactoMineR)
+library(factoextra)
+library(nnet)
+library(kableExtra)
+library(gtsummary)
+# library(DataExplorer)
+# library(colorspace)
+# library(forestmodel)
+library(janitor)
+# library(fmsb)
+library(labelled)
+#
+classeur <- "htahad.ods"
+expx <- FALSE
+if (expx) {
+  file.create(classeur)
+  file.remove(classeur)
+  write_ods(iris, classeur)
+}
+
+# sessionInfo()
+theme_gtsummary_language(language = "fr", decimal.mark = ",")
+# theme_gtsummary_journal(journal = "jama")
+options(OutDec = ",")
+ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test")
+```
+
+
+
+```{r}
+#| label: import
+
+tt <- read_ods("datas/htahad.ods", sheet = "tableau", na = c("", "NC", "NA")) |>
+  clean_names() |>
+  ## Recodage de tt$mater_origine
+  mutate(mater_origine = fct_recode(mater_origine,
+    "Argenteuil" = "argenteuil",
+    "Delafontaine" = "DELAFONTAINE",
+    "Montfermeil" = "MONTFERMEIL",
+    "Pontoise" = "pontoise"
+  )) |>
+  mutate(gem = fct_recode(gem,
+    "Gémellaire" = "BIBI",
+    "Gémellaire" = "GEM",
+    "Non gémellaire" = "non"
+  )) |>
+  mutate(across(where(is.character), ~ as.factor(.x))) |>
+  mutate(across(starts_with("nb_"), ~ as.factor(.x))) |>
+  mutate(ipp = as.factor(ipp)) |>
+  mutate(across(starts_with("prot_"), ~ fct_relevel(
+    .x,
+    "neg", "0,3-1", "1 a 3", ">3"
+  ))) |>
+  ## Réordonnancement de tt$terme_mise_en_place_ttt
+  mutate(across(starts_with("traitement"), ~ fct_relevel(
+    .x,
+    "aucun", "monothérapie", "Bithérapie", "trithérapie"
+  ))) |>
+  mutate(imc = factor(bmiph(imc))) |>
+  ## Recodage de tt$imc
+  mutate(imc = fct_recode(imc,
+    "maigreur - normal" = "maigreur",
+    "maigreur - normal" = "normal"
+  )) |>
+  ## Réordonnancement de tt$nb_bvr
+  mutate(nb_bvr = fct_relevel(
+    nb_bvr,
+    "1", "2", "1/mois", "2/mois", "1/sem", "2/sem"
+  ))
+#
+bn <- read_ods("datas/htahad.ods", sheet = "bnom")
+bn <- bn$nom
+var_label(tt) <- bn
+save(tt, file = "datas/htahad.RData")
+```
+
+L'échantillon conservé pour l'analyse statistique comporte `r nrow(tt)` patients pour `r ncol(tt) - 1` variables. 
+

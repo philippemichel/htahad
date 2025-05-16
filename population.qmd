@@ -1,0 +1,81 @@
+---
+title: "Population"
+---
+
+
+
+```{r}
+#| label: setup4
+
+rm(list = ls())
+#
+library(corrplot)
+library(readODS)
+library(baseph)
+# library(GGally)
+library(ggsci)
+# library(ggstats)
+library(tidyverse)
+library(missMDA)
+library(FactoMineR)
+library(factoextra)
+library(nnet)
+library(kableExtra)
+library(gtsummary)
+# library(DataExplorer)
+# library(colorspace)
+# library(forestmodel)
+library(janitor)
+# library(fmsb)
+library(labelled)
+#
+classeur <- "htahad.ods"
+expx <- FALSE
+if (expx) {
+  file.create(classeur)
+  file.remove(classeur)
+  write_ods(iris, classeur)
+}
+
+# sessionInfo()
+theme_gtsummary_language(language = "fr", decimal.mark = ",")
+# theme_gtsummary_journal(journal = "jama")
+options(OutDec = ",")
+ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test")
+load("datas/htahad.RData")
+```
+
+
+```{r}
+#| label: tbl-popu
+#| tbl-cap: Population de l'étude
+
+tt |>
+  select(mater_origine:patho_associe) |>
+  tbl_summary(missing = "no") |>
+  add_n() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "popu", lg = TRUE)
+```
+
+
+# À la prise en charge
+
+```{r}
+#| label: tbl-entree
+#| tbl-cap: Bilan d'entrée
+
+tt |>
+  select(terme_dentree:classification_patho) |>
+  tbl_summary(missing = "no") |>
+  add_n() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "entree", lg = TRUE)
+```
+
+
+
+
+
