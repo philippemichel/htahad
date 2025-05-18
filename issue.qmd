@@ -43,6 +43,31 @@ ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test"
 load("datas/htahad.RData")
 ```
 
+```{r}
+#| label: macro
+
+hexptabph <-
+  function(dfk,
+           exp = FALSE,
+           nomfich = "export",
+           nomsheet = "x",
+           lg = FALSE) {
+    zz <- dfk |>
+      as_kable_extra() |>
+      kable_styling(bootstrap_options = c("striped", "hover"),
+                    fixed_thead = TRUE) |> 
+      scroll_box(width = "100%", height = "780px")
+    if (exp) {
+      dfk |>
+        as_tibble() |>
+        write_ods(path = nomfich, sheet = nomsheet, append = TRUE)
+    }
+    return(zz)
+  }
+
+```
+
+
 On recherche des facteurs éventuels pouvant influencer l'issue de l'HAD.
 
 ```{r}
@@ -59,7 +84,7 @@ tt |>
   add_p() |>
   bold_labels() |>
   modify_header(label ~ " ") |>
-  pexptabph(exp = expx, nomfich = classeur, nomsheet = "popissue", lg = TRUE)
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "popissue", lg = TRUE)
 ```
 
 La conclusion de l'HAD semble surtout liée au terrain (atcd, pathologies associées...). Visiblement chaque maternité a sa propre politique de prise en charge des patientes.
@@ -116,7 +141,7 @@ tt |>
   add_p() |>
   bold_labels() |>
   modify_header(label ~ " ") |>
-  pexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue", lg = TRUE)
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue", lg = TRUE)
 ```
 
 Le type de suivi semble influer sur la sortie. 
