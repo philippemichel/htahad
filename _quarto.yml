@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: "docs"
 date: today
+lang: fr
 language:
   title-block-author-single: "Auteur"
 author:
@@ -40,11 +41,6 @@ website:
     style: "docked"
     pinned: true
     search: true
-    contents:
-      - index.qmd
-      - population.qmd
-      - issue.qmd
-      - delaiacc.qmd
   open-graph:
     locale: fr_FR
 format:

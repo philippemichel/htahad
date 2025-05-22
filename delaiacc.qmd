@@ -12,7 +12,7 @@ library(readODS)
 library(baseph)
 # library(GGally)
 library(ggsci)
-# library(ggstats)
+library(plotly)
 library(tidyverse)
 library(missMDA)
 library(FactoMineR)
@@ -64,7 +64,7 @@ tt |>
 #| label: fig-delai
 #| fig-cap: Délai hospitalisation - accouchement & Urgence
 
-tt |>
+zz <- tt |>
   ggplot() +
   aes(x = issue, y = delai_hospit_acc, fill = issue) +
   geom_violin() +
@@ -93,7 +93,8 @@ tt |>
     axis.text.x = element_text(size = 12),
     axis.text.y = element_text(size = 12),
     legend.position = "none"
-  )
+  ) 
+  ggplotly(zz)
 ```
 
 ```{r}

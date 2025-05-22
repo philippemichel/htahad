@@ -3,6 +3,10 @@ title: "Généralités"
 cache: false
 ---
 
+::: {.panel-tabset} 
+
+# Généralités
+
 **Investigateur principal : Mme Sandrine GUENEAU**
 
 :::{.callout-warning}
@@ -20,8 +24,9 @@ rm(list = ls())
 library(corrplot)
 library(readODS)
 library(baseph)
-# library(GGally)
+library(emmeans)
 library(ggsci)
+library(plotly)
 # library(ggstats)
 library(tidyverse)
 library(missMDA)
@@ -49,9 +54,40 @@ if (expx) {
 theme_gtsummary_language(language = "fr", decimal.mark = ",")
 # theme_gtsummary_journal(journal = "jama")
 options(OutDec = ",")
-ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test")
+ptest <- list(all_continuous() ~ "t.test", all_categorical() ~ "chisq.test")
+stt <- list(
+      all_continuous() ~ "{mean} ({sd})",
+      all_categorical() ~ "{n} / {N} ({p}%)"
+    )
 ```
 
+```{r}
+#| label: macro
+
+hexptabph <-
+  function(dfk,
+           exp = FALSE,
+           nomfich = "export",
+           nomsheet = "x",
+           scroll = TRUE) {
+    zz <- dfk |>
+      as_kable_extra() |>
+      kable_styling(
+        bootstrap_options = c("striped", "hover"),
+        fixed_thead = TRUE
+      )
+    if (scroll) {
+      scroll_box(zz,width = "100%", height = "780px")
+    }
+    if (exp) {
+      dfk |>
+        as_tibble() |>
+        write_ods(path = nomfich, sheet = nomsheet, append = TRUE)
+    }
+    return(zz)
+  }
+
+```
 
 
 ```{r}
@@ -59,6 +95,24 @@ ptest <- list(all_continuous() ~ "wilcox.test", all_categorical() ~ "chisq.test"
 
 tt <- read_ods("datas/htahad.ods", sheet = "tableau", na = c("", "NC", "NA")) |>
   clean_names() |>
+  # Ajout mai
+  mutate(patho_associe = ifelse(is.na(patho_associe), "Non", "Oui")) |>
+  mutate(GHR = ifelse(issue == "urgences", "Oui", "Non")) |> 
+  mutate(parite= ifelse(parite == "0", "nullipare", "pare")) |> 
+  relocate(GHR,.after = issue) |>
+  mutate(atcd2 = ifelse(is.na(atcd), "Non", "Oui")) |>
+  relocate(atcd2,.after = atcd)|>
+  ## Recodage de tt$age_au_ddg en tt$age_au_ddg_rec
+mutate(age = cut(age_au_ddg,
+  include.lowest = TRUE,
+  right = FALSE,
+  dig.lab = 4,
+  breaks = c(0,35, 40, 50),
+  labels = c("<35 ans", "35-39 ans", "40 ans et plus"))) |>
+  relocate(age,.after = age_au_ddg) |>
+  mutate(evott = ifelse(traitement_entree== traitement_sortie, "Oui","Non")) |>
+  mutate(evoptu = ifelse(prot_fin == prot_entree, "Oui","Non")) |>
+  # 
   ## Recodage de tt$mater_origine
   mutate(mater_origine = fct_recode(mater_origine,
     "Argenteuil" = "argenteuil",
@@ -71,7 +125,6 @@ tt <- read_ods("datas/htahad.ods", sheet = "tableau", na = c("", "NC", "NA")) |>
     "Gémellaire" = "GEM",
     "Non gémellaire" = "non"
   )) |>
-  mutate(across(where(is.character), ~ as.factor(.x))) |>
   mutate(across(starts_with("nb_"), ~ as.factor(.x))) |>
   mutate(ipp = as.factor(ipp)) |>
   mutate(across(starts_with("prot_"), ~ fct_relevel(
@@ -87,19 +140,302 @@ tt <- read_ods("datas/htahad.ods", sheet = "tableau", na = c("", "NC", "NA")) |>
   ## Recodage de tt$imc
   mutate(imc = fct_recode(imc,
     "maigreur - normal" = "maigreur",
-    "maigreur - normal" = "normal"
+    "maigreur - normal" = "normal",
+    "Obésité" = "obésité modérée",
+    "Obésité" = "obésité sévère",
+    "Obésité" = "obésité morbide"
   )) |>
   ## Réordonnancement de tt$nb_bvr
   mutate(nb_bvr = fct_relevel(
-    nb_bvr,
-    "1", "2", "1/mois", "2/mois", "1/sem", "2/sem"
-  ))
+    nb_bvr, "1/mois", "2/mois", "1/sem", "2/sem"
+  )) |> 
+  ## Réordonnancement de tt$issue
+mutate(issue = fct_relevel(issue,
+    "W spont", "declt prog", "urgences"
+  )) |> 
+  mutate(across(where(is.character), ~ as.factor(.x)))
 #
 bn <- read_ods("datas/htahad.ods", sheet = "bnom")
 bn <- bn$nom
-var_label(tt) <- bn
+ var_label(tt) <- bn
 save(tt, file = "datas/htahad.RData")
 ```
 
 L'échantillon conservé pour l'analyse statistique comporte `r nrow(tt)` patients pour `r ncol(tt) - 1` variables. 
+
+# Population
+
+
+
+```{r}
+#| label: tbl-popu
+#| tbl-cap: Population de l'étude
+
+tt |>
+  select(age_au_ddg, imc, diabete, patho_associe:classification_patho ) |>
+  tbl_summary(missing = "no", 
+              by = classification_patho,
+              statistic = stt) |> 
+  add_n() |>
+  add_p() |> 
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "popu")
+```
+
+
+## classification pathologique
+
+```{r}
+#| label: tbl-entree
+#| tbl-cap: Bilan d'entrée
+
+tt |>
+  select(patho_associe,evoptu:evobvr,duree_had, terme_sortie,delai_hospit_acc, classification_patho)|>
+  tbl_summary(missing = "no", by = classification_patho) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entree")
+```
+
+# Issue
+
+
+
+On recherche des facteurs éventuels pouvant influencer l'issue de l'HAD.
+
+```{r}
+#| label: tbl-isssuepop
+#| tbl-cap: Issue selon les variables démagogiques & les antécédants
+
+tt |>
+  select(mater_origine:patho_associe, issue) |>
+  tbl_summary(
+    by = issue,
+    missing = "no"
+  ) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "popissue")
+```
+
+La conclusion de l'HAD semble surtout liée au terrain (atcd, pathologies associées...). Visiblement chaque maternité a sa propre politique de prise en charge des patientes.
+
+```{r}
+#| label: fig-ageissue
+#| fig-cap: Issue de l'HAD selon l'âge
+
+zz <- tt |>
+  ggplot() +
+  aes(x = issue, y = age_au_ddg, fill = issue) +
+  geom_boxplot() +
+  annotate("text", x = 0.6, y = 48, label = "p = 0,3") +
+  labs(
+    title = "Issue de l'HAD selon l'âge",
+    subtitle = "p = 0,3",
+    x = "Issue de l'HAD",
+    y = "Âge",
+    caption = "",
+    fill = ""
+  ) +
+  theme_light() +
+  scale_fill_jama() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title.x = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    axis.title.y = element_text(
+      size = 12,
+      angle = 90,
+      vjust = .5
+    ),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    legend.position = "none"
+  )
+ggplotly(zz)
+```
+
+
+
+```{r}
+#| label: tbl-isssueentree
+#| tbl-cap: Issue selon le bilan initial
+
+tt |>
+  select(terme_dentree:classification_patho, issue) |>
+  tbl_summary(
+    by = issue,
+    missing = "no"
+  ) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue")
+```
+
+Le type de suivi semble influer sur la sortie. 
+
+## Analyse en régression
+
+On défini la modalité `W spontanée` comme référence : les comparaisons sont à comprendre la modalité indiquée vs `W spontanée`.
+
+```{r}
+#| label: tbl-regissue
+#| tbl-cap: Issue de l'HAD - analyse en régression
+
+multinom(
+  issue ~
+    mater_origine +
+    age_au_ddg,
+  data = tt
+) |>
+  tbl_regression(exponentiate = TRUE) |> 
+    bold_labels() |>
+  modify_header(label ~ " ") |>
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue")
+```
+
+Pontoise & Argenteuil semblent avoir des méthodes de travail proches.
+
+# Délai hospitalisation - accouchement
+
+```{r}
+#| label: tbl-delai
+#| tbl-cap: Délai hospitalisation - accouchement & Urgence
+
+
+tt |>
+  dplyr::select(issue, delai_hospit_acc) |>
+  tbl_summary(missing = "no", by = issue) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "delai")
+```
+
+
+```{r}
+#| label: tbl-lldelai
+#| tbl-cap: "Délai hospitalisation - accouchement & issue de l'HAD"
+
+ll <- lm(delai_hospit_acc~issue,data = tt)
+llem <- emmeans(ll, "issue")
+pp <- pairs(llem, name = "Délai hospitalisation - accouchement & issue")
+pp |> 
+  kbl(longtable = TRUE, booktabs = TRUE) |>
+      kable_styling(latex_options = c("scale_down", "repeat_header")) |> 
+  row_spec(0, bold = TRUE) |> 
+  footnote(general = "Test de Dunn. ",general_title = "")
+ if (expx) {
+      pp |>
+        as_tibble() |>
+        write_ods(path = classeur, sheet = lldelai, append = TRUE)
+    }
+```
+
+```{r}
+#| label: fig-lldelai
+#| fig-cap: "Délai hospitalisation - accouchement & issue de l'HAD"
+
+
+llem |> 
+  plot(comparisons = TRUE) +
+  labs(title = "Délai hospitalisation - accouchement & issue de l'HAD",
+      subtitle = "",
+      x = "Délai hospitalisation - accouchement (jours)",
+      y = "",
+      caption = "Les barres bleues représentent les intervalles de confiance. \n Les flèches rouges indiquent les comparaisons entre eux. \n Si une flèche chevauche une flèche d’un autre groupe la différence n’est pas significative.",
+      fill = "") +
+ theme_light() +
+  scale_fill_jama() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title.x = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    axis.title.y = element_text(
+      size = 12,
+      angle = 0,
+      vjust = .5
+    ),
+  axis.text.x = element_text(size = 12),
+  axis.text.y = element_text(size = 12),
+  legend.position = "none"
+  )
+```
+
+
+
+```{r}
+#| label: fig-delai
+#| fig-cap: Délai hospitalisation - accouchement & Urgence
+
+zz <- tt |>
+  ggplot() +
+  aes(x = issue, y = delai_hospit_acc, fill = issue) +
+  geom_violin() +
+  geom_boxplot(width = 0.2, fill = "grey90") +
+  # annotate("text", x = 0.6, y = 48, label = "p = 0,3") +
+  labs(
+    title = "Délai hospitalisation - accouchement & Urgence",
+    subtitle = "p <0,001",
+    x = "Issue de l'HAD",
+    y = "Jours",
+    caption = "",
+    fill = ""
+  ) +
+  theme_light() +
+  scale_fill_jama() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title.x = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    axis.title.y = element_text(
+      size = 12,
+      angle = 90,
+      vjust = .5
+    ),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    legend.position = "none"
+  ) 
+  ggplotly(zz)
+```
+
+```{r}
+#| label: tbl-delaiurg
+
+tt |>
+  mutate(urg = if_else(issue == "urgences", "Urgences", "non Urgences")) |>
+  dplyr::select(urg, delai_hospit_acc) |>
+  tbl_summary(missing = "no", by = urg) |>
+  add_n() |>
+  add_p() |>
+  bold_labels() |>
+  modify_header(label ~ " ") |>
+  pexptabph(exp = expx, nomfich = classeur, nomsheet = "dedelaiurg")
+```
+
+# Technique
+
+L'analyse statistique a été réalisée avec le logiciel **R**[@rstat] & divers packages. Outre ceux cités dans le texte on a utilisé en particulier `tidyverse` [@tidy] & `baseph` [@baseph].
+
+Le seuil de signification $\alpha$ a été fixé à \num{0.05} & la puissance à \num{0.8}. 
+
+Pour les variables continues les comparaisons entre trois classes (par exemple `issue`) ont été réalisées avec le test de Kruskal-Wallis -- ANOVA unidirectionnelle sur rangs) pour les variables continues.  Si ces tests montraient une différence significative des comparaisons des niveaux deux à deux ou tests post-hoc pouvaient être réalisées (test de Dunn avec ajustement par la méthode de Bonferroni pour comparaisons multiples). Les comparaisons entre deux classes ont été réalisées avec le test de Wilcoxon. L'étude des variables discrètes a été réalisée avec le test du Chi-deux de Pearson. 
+
+L'analyse statistique a été réalisée avec le logiciel **R**[@rstat].
+
+
+\addcontentsline{toc}{chapter}{Bibliographie}
+:::
 

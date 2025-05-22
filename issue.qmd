@@ -7,24 +7,16 @@ title: "Issue de l'HAD"
 
 rm(list = ls())
 #
-library(corrplot)
-library(readODS)
 library(baseph)
 # library(GGally)
 library(ggsci)
 # library(ggstats)
 library(tidyverse)
-library(missMDA)
-library(FactoMineR)
-library(factoextra)
 library(nnet)
 library(kableExtra)
 library(gtsummary)
-# library(DataExplorer)
 # library(colorspace)
 # library(forestmodel)
-library(janitor)
-# library(fmsb)
 library(labelled)
 #
 classeur <- "htahad.ods"
@@ -56,7 +48,7 @@ hexptabph <-
       as_kable_extra() |>
       kable_styling(bootstrap_options = c("striped", "hover"),
                     fixed_thead = TRUE) |> 
-      scroll_box(width = "100%", height = "780px")
+      scroll_box(width = "100%", height = "780px  ")
     if (exp) {
       dfk |>
         as_tibble() |>
@@ -141,17 +133,18 @@ tt |>
   add_p() |>
   bold_labels() |>
   modify_header(label ~ " ") |>
-  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue", lg = TRUE)
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue")
 ```
 
 Le type de suivi semble influer sur la sortie. 
 
 ## Analyse en régression
 
+On défini la modalité `W spontanée` comme référence : les comparaisons sont à comprendre la modalité indiquée vs `W spontanée`.
+
 ```{r}
 #| label: tbl-regissue
 #| tbl-cap: Issue de l'HAD - analyse en régression
-
 
 multinom(
   issue ~
@@ -159,5 +152,10 @@ multinom(
     age_au_ddg,
   data = tt
 ) |>
-  tbl_regression(exponentiate = TRUE)
+  tbl_regression(exponentiate = TRUE) |> 
+    bold_labels() |>
+  modify_header(label ~ " ") |>
+  hexptabph(exp = expx, nomfich = classeur, nomsheet = "entreeissue")
 ```
+
+Pontoise & Argenteuil semblent avoir des méthodes de travail proches.
